@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.admin.firebase.R;
 import com.example.admin.firebase.injection.mainactivity.DaggerMainActivityComponent;
+import com.example.admin.firebase.model.Movie;
 
 import javax.inject.Inject;
 
@@ -46,6 +47,16 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
     public void setTextView(String s) {
         tvData.setText(s);
+    }
+
+    public void pushMovie(View view){
+
+        Movie movie = new Movie("Avengers", "", 2015);
+        presenter.pushMovieToDb(movie);
+    }
+
+    public void getMovie(View view){
+        presenter.getMovieFromCloud("movies");
     }
 
 }
